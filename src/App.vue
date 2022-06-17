@@ -1,27 +1,31 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-</template>
-
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { Component, Vue } from "vue-property-decorator";
+import HelloWorld from "./components/HelloWorld.vue";
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+@Component({
+  component: {
+    HelloWorld,
+  },
+})
+export default class FirstComponent extends Vue {}
+
+// ↑のVueでエラー出るのなんで・・・？
+// Vue Class ComponentとVue Property Decoratorとsetupが出てきてわけわからん最新はどれ？
 </script>
+
+<template>
+  <h1>Vue 3</h1>
+  <img src="@/assets/logo.png" />
+  <HelloWorld />
+</template>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: darkolivegreen;
   margin-top: 60px;
 }
 </style>
